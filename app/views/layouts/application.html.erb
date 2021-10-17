@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BlogOnRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>BlogOnRails</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
+      <%= stylesheet_link_tag 'application' , media: 'all' %>
+      <%= stylesheet_link_tag 'main' , media: 'all' %>
 
-  <body>
-    <%= yield %>
-  </body>
+        <%= javascript_pack_tag 'application' %>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid ">
+      <a href="/" class="nav-link home-button">Blog On Rails</a>
+      <form class="d-flex">
+        <a class="nav-link" aria-current="page" href="/">Home</a>
+        <a class="nav-link" aria-current="page" href="/posts/new">New Post</a>
+
+      </form>
+    </div>
+  </nav>
+
+  <%= yield %>
+</body>
+
 </html>
