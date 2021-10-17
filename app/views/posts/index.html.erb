@@ -1,8 +1,18 @@
-<% @posts.each do |post| %> 
-<div>
-    <%= post.title %> 
+<div class="container">
+    <div class="row">
+        <% @posts.each do |post| %>
+            <div class="col-md-6 col-lg-4 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title title-position">
+                            <a href='/posts/<%= post.id %>' class="nav-link"><%= post.title %></a>
+                        </h5>
+                        <p class="card-text body-position">
+                            <%= post.body[0..50] %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+    </div>
 </div>
-<div>
-    <%= post.body[0..50] %> 
-</div>
-<% end %> 

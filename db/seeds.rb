@@ -13,7 +13,7 @@ Post.destroy_all
 
     Post.create(
         title: Faker::Kpop.ii_groups,
-        body: Faker::GreekPhilosophers.quote * 50,
+        body: Faker::TvShows::Seinfeld.quote * 5,
         created_at: created_at,
         updated_at: created_at
     )
