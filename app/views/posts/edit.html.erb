@@ -1,3 +1,13 @@
+<% if @post.errors.any? %> 
+<div class="alert alert-danger">
+<ul>
+    <%= @post.errors.full_messages.each do |message| %> 
+        <li><%= message %> </li>
+    <% end %> 
+</ul>
+</div>
+<% end %> 
+
 <div class="container">
     <%= form_with(model: @post) do |form| %>
         <div class="mb-3 mt-3">

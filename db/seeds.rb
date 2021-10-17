@@ -7,21 +7,33 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Post.destroy_all
+Comment.destroy_all
 
-50.times do
+100.times do
     created_at = Faker::Date.backward(days:365 * 5)
 
-    Post.create(
+    p = Post.create(
         title: Faker::Kpop.ii_groups,
         body: Faker::TvShows::Seinfeld.quote * 5,
         created_at: created_at,
         updated_at: created_at
     )
+    if p.valid?
+        rand(1..5).times do
+            Comment.create(
+                comment: Faker::Movies::Ghostbusters.quote,
+                created_at: created_at,
+                post:p
+            )
+        end
+    end
 end
 
 posts = Post.all
+comments = Comment.all
 
 puts Cowsay.say("Generated #{posts.count} posts", :frogs)
+puts Cowsay.say("Generated #{comments.count} comments", :cow)
 
 
 
